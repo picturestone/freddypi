@@ -32,9 +32,10 @@ class S(BaseHTTPRequestHandler):
     def do_POST(self):
         # Doesn't do anything with posted data
         print("start")
-        sleep(10)
-        length = self.headers.getheader('content-length')
-        requestdata = self.rfile.read(int(length))
+        # sleep(10)
+        length = self.headers.get('content-length')
+        requestdata = self.rfile.read(int(length)).decode("utf-8")
+        print(requestdata)
         requestdata = requestdata.replace("\'", "\"")
         requestobject = json.loads(requestdata)
 
@@ -42,7 +43,7 @@ class S(BaseHTTPRequestHandler):
         print(requestobject["parameter"]["leftwheel"])
         self._set_headers()
         print("stop")
-        self.wfile.write("")
+        self.wfile.write(b"")
 
 def run(server_class=HTTPServer, handler_class=S, port=50000):
     server_address = ('127.0.0.1', port)
