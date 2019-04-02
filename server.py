@@ -1,5 +1,5 @@
 
-#!/usr/bin/env python2
+#!/usr/bin/env python
 """
 Very simple HTTP server in python.
 Usage::
@@ -11,8 +11,9 @@ Send a HEAD request::
 Send a POST request::
     curl -d "foo=bar&bin=baz" http://localhost
 """
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-import SocketServer,sys,json
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import socketserver,sys,json
+from time import sleep
 
 
 class S(BaseHTTPRequestHandler):
@@ -30,16 +31,18 @@ class S(BaseHTTPRequestHandler):
 
     def do_POST(self):
         # Doesn't do anything with posted data
+        print("start")
+        sleep(10)
         length = self.headers.getheader('content-length')
         requestdata = self.rfile.read(int(length))
         requestdata = requestdata.replace("\'", "\"")
         requestobject = json.loads(requestdata)
 
-        
         print(requestobject["command"])
         print(requestobject["parameter"]["leftwheel"])
         self._set_headers()
-        self.wfile.write("<html><body><h1>POST!</h1></body></html>")
+        print("stop")
+        self.wfile.write("")
 
 def run(server_class=HTTPServer, handler_class=S, port=80):
     server_address = ('192.168.137.182', port)
