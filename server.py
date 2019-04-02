@@ -32,7 +32,10 @@ class S(BaseHTTPRequestHandler):
         # Doesn't do anything with posted data
         length = self.headers.getheader('content-length')
         requestdata = self.rfile.read(int(length))
+        requestdata = requestdata.replace("\'", "\"")
         requestobject = json.loads(requestdata)
+
+        
         print(requestobject["command"])
         print(requestobject["parameter"]["leftwheel"])
         self._set_headers()
