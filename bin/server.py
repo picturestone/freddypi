@@ -44,8 +44,8 @@ class S(BaseHTTPRequestHandler):
         print("stop")
         self.wfile.write("")
 
-def run(server_class=HTTPServer, handler_class=S, port=80):
-    server_address = ('192.168.137.182', port)
+def run(server_class=HTTPServer, handler_class=S, port=50000):
+    server_address = ('127.0.0.1', port)
     httpd = server_class(server_address, handler_class)
     print ('Starting httpd...')
     httpd.serve_forever()
