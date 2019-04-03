@@ -8,33 +8,33 @@ Header-Fields:
 ### Move
 ```
 {
-	command: 'move',
-	parameter: {
-		leftwheel: <INTEGER>
-		rightwheel: <INTEGER>
+	'command': 'move',
+	'parameter': {
+		'direction': <STRING>
+		'speed': <INTEGER>
 	}
 }
 ```
 Parameters:
-* leftwheel: Describes the percentage of speed on the left wheel. Ranges between -100 and 100.
-* rightwheel: Describes the percentage of speed on the right wheel. Ranges between -100 and 100.
+* direction: Describes the direction the robot should go. Possible values are: 'left', 'right', 'forward', 'backward'
+* speed: Describes the percentage of speed. Ranges between 0 and 100.
 
 Example:
 ```
 {
-	command: 'move',
-	parameter: {
-		leftwheel: 100,
-		rightwheel: 50
+	'command': 'move',
+	'parameter': {
+		'direction': 'forward'
+		'speed': 75
 	}
 }
 ```
 ### Light
 ```
 {
-	command: 'light',
-	parameter: {
-		mode: <STRING>
+	'command': 'light',
+	'parameter': {
+		'mode': <STRING>
 	}
 }
 ```
@@ -44,18 +44,18 @@ Parameters:
 Example:
 ```
 {
-	command: 'light',
-	parameter: {
-		mode: 'blink'
+	'command': 'light',
+	'parameter': {
+		'mode': 'blink'
 	}
 }
 ```
 ### Buzzer
 ```
 {
-	command: 'buzzer',
-	parameter: {
-		mode: <STRING>
+	'command': 'buzzer',
+	'parameter': {
+		'mode': <STRING>
 	}
 }
 ```
@@ -65,18 +65,18 @@ Parameters:
 Example:
 ```
 {
-	command: 'buzzer',
-	parameter: {
-		mode: 'alarm'
+	'command': 'buzzer',
+	'parameter': {
+		'mode': 'alarm'
 	}
 }
 ```
 ### LCD
 ```
 {
-	command: 'lcd',
-	parameter: {
-		text: <STRING>
+	'command': 'lcd',
+	'parameter': {
+		'text': <STRING>
 	}
 }
 ```
@@ -86,9 +86,9 @@ Parameters:
 Example:
 ```
 {
-	command: 'lcd',
-	parameter: {
-		mode: 'Your car sucks!'
+	'command': 'lcd',
+	'parameter': {
+		'text': 'Your car sucks!'
 	}
 }
 ```
