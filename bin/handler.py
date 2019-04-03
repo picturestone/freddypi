@@ -1,4 +1,4 @@
-from bin.commands.movecommand import MoveCommand
+from commands.movecommand import MoveCommand
 
 class Handler:
     def __init__(self):

@@ -1,5 +1,5 @@
 from gpiozero import Robot
-from bin.configreader import ConfigReader
+from configreader import ConfigReader
 import signal
 
 class MoveCommand:
