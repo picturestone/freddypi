@@ -1,5 +1,8 @@
 # freddypi
 
+## Installs
+pip install httpserver gpiozero pigpio --user
+
 ## Protocol
 All requests are get-requests to the root.
 
