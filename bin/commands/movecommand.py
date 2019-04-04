@@ -40,11 +40,11 @@ class MoveCommand:
         def __moveForward(self):
             self.__leftForward.on()
             self.__leftBackward.off()
-            self.__leftEnable.value = 1
+            self.__leftEnable.value = self.speed
 
             self.__rightForward.on()
             self.__rightBackward.off()
-            self.__rightEnable.value = 1
+            self.__rightEnable.value = self.speed
 
         def __moveBackward(self):
             self.__robot.backward()
