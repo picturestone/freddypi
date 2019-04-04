@@ -8,11 +8,10 @@ class MoveCommand:
     def __init__(self, direction):
         if not MoveCommand.instance:
             self.instance = MoveCommand.__MoveCommand(direction)
-            self.__execute()
         else:
-            instance.direction = direction
+            self.instance.direction = direction
     
-    def __execute(self):
+    def execute(self):
         self.instance.directions[self.instance.direction]()
 
     class __MoveCommand:
