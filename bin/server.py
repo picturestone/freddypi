@@ -11,7 +11,8 @@ Send a HEAD request::
 Send a POST request::
     curl -d "foo=bar&bin=baz" http://localhost
 """
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+# from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import socketserver,sys,json
 from configreader import ConfigReader
 from time import sleep
