@@ -19,8 +19,8 @@ class MoveCommand:
         def __init__(self, direction):
             config = ConfigReader()
             self.__robot = Robot(
-                left=(config.leftMotorForwardPin,config.leftMotorBackwardPin), 
-                right=(config.rightMotorForwardPin,config.rightMotorBackwardPin)
+                left=(int(config.leftMotorForwardPin),int(config.leftMotorBackwardPin)), 
+                right=(int(config.rightMotorForwardPin),int(config.rightMotorBackwardPin))
                 )
             self.speed = 1
             self.direction = direction
