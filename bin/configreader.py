@@ -13,6 +13,8 @@ class ConfigReader:
             self.rightMotorEnablePin = instance.rightMotorEnablePin
             self.ip = instance.ip
             self.port = instance.port
+            self.light1 = instance.light1
+            self.light2 = instance.light2
 
     class __ConfigReader: 
 
@@ -28,6 +30,8 @@ class ConfigReader:
             self.rightMotorEnablePin = config['MotorRight']['enable']
             self.ip = config['server']['ip']
             self.port = config['server']['port']
+            self.light1 = config['lights']['light1']
+            self.light1 = config['lights']['light2']
 
     
 
