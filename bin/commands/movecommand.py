@@ -13,7 +13,7 @@ class MoveCommand:
             instance.__direction = direction
     
     def __execute(self):
-        self.instance.__directions[self.instance.__direction]()
+        self.instance.__directions[self.instance.direction]()
 
     class __MoveCommand:
         def __init__(self, direction):
