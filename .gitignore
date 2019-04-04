@@ -24,4 +24,3 @@ hs_err_pid*
 bin/__pycache__/
 .vscode/
 bin/commands/__pycache__/
-bin/config.ini
