@@ -1,4 +1,4 @@
-from gpiozero import Robot
+from gpiozero import Robot, PWMLED
 from configreader import ConfigReader
 import signal
 
@@ -22,6 +22,8 @@ class MoveCommand:
                 left=(int(config.leftMotorForwardPin),int(config.leftMotorBackwardPin)), 
                 right=(int(config.rightMotorForwardPin),int(config.rightMotorBackwardPin))
                 )
+            self.__leftEnable = PWMLED(int(config.leftMotorEnablePin))
+            self.__rightEnable = PWMLED(int(config.rightMotorEnablePin))
             self.speed = speed / 100
             self.direction = direction
             self.directions = {
@@ -33,10 +35,14 @@ class MoveCommand:
             }
 
         def __moveForward(self):
-            self.__robot.forward(speed=self.speed)
+            self.__robot.forward()
+            self.__leftEnable.value = 1
+            self.__rightEnable.value = 1
 
         def __moveBackward(self):
-            self.__robot.backward(speed=self.speed)
+            self.__robot.backward()
+            self.__leftEnable.value = 1
+            self.__rightEnable.value = 1
 
         def __moveLeft(self):
             self.__robot.right(speed=self.speed)
