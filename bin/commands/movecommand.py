@@ -7,10 +7,10 @@ class MoveCommand:
     
     def __init__(self, direction, speed):
         if not MoveCommand.instance:
-            MoveCommand.instance = MoveCommand.__MoveCommand(direction, speed)
+            MoveCommand.instance = MoveCommand.__MoveCommand(direction, speed / 100)
         else:
             MoveCommand.instance.direction = direction
-            MoveCommand.instance.speed = speed
+            MoveCommand.instance.speed = speed /100
     
     def execute(self):
         MoveCommand.instance.directions[MoveCommand.instance.direction]()
@@ -27,7 +27,7 @@ class MoveCommand:
             self.__rightBackward = LED(int(config.rightMotorBackwardPin))
             self.__rightEnable = PWMLED(int(config.rightMotorEnablePin))
 
-            self.speed = speed / 100
+            self.speed = speed
             self.direction = direction
             self.directions = {
                 "forward": self.__moveForward,
