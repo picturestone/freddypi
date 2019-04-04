@@ -13,19 +13,22 @@ Header-Fields:
 {
 	'command': 'move',
 	'parameter': {
-		'direction': <STRING>
+		'direction': <STRING>,
+		'speed': <INTEGER>
 	}
 }
 ```
 Parameters:
 * direction: Describes the direction the robot should go. Possible values are: 'left', 'right', 'forward', 'backward', 'stop'
+* speed: Describes the speed the robot should go. Possible values: between 0 and 100
 
 Example:
 ```
 {
 	'command': 'move',
 	'parameter': {
-		'direction': 'forward'
+		'direction': 'forward',
+		'speed': 75
 	}
 }
 ```
