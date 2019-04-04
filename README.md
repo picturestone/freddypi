@@ -1,7 +1,7 @@
 # freddypi
-
+Python 3.5
 ## Installs
-pip install httpserver gpiozero pigpio --user
+sudo apt install python3-gpiozero
 
 ## Protocol
 All requests are get-requests to the root.
