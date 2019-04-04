@@ -20,7 +20,10 @@ class Handler:
 
     def __createMoveCommand(self, parameterMap):
         direction = parameterMap["direction"]
-        moveCommand = MoveCommand(direction)
+        speed = 0
+        if 'speed' in parameterMap:
+            speed = parameterMap["speed"]
+        moveCommand = MoveCommand(direction, speed)
         return moveCommand
 
     def __createTestCommand(self, parameterMap):

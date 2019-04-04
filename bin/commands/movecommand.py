@@ -5,23 +5,24 @@ import signal
 class MoveCommand:
     instance = None
     
-    def __init__(self, direction):
+    def __init__(self, direction, speed):
         if not MoveCommand.instance:
-            MoveCommand.instance = MoveCommand.__MoveCommand(direction)
+            MoveCommand.instance = MoveCommand.__MoveCommand(direction, speed)
         else:
             MoveCommand.instance.direction = direction
+            MoveCommand.instance.speed = speed
     
     def execute(self):
         MoveCommand.instance.directions[MoveCommand.instance.direction]()
 
     class __MoveCommand:
-        def __init__(self, direction):
+        def __init__(self, direction, speed):
             config = ConfigReader()
             self.__robot = Robot(
                 left=(int(config.leftMotorForwardPin),int(config.leftMotorBackwardPin)), 
                 right=(int(config.rightMotorForwardPin),int(config.rightMotorBackwardPin))
                 )
-            self.speed = 1
+            self.speed = speed / 100
             self.direction = direction
             self.directions = {
                 "forward": self.__moveForward,
