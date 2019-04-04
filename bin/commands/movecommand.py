@@ -38,12 +38,12 @@ class MoveCommand:
             }
 
         def __moveForward(self):
-            self.__leftForward()
-            self.__rightForward()
+            self.__setLeftForward()
+            self.__setRightForward()
 
         def __moveBackward(self):
-            self.__leftBackward()
-            self.__rightBackward()
+            self.__setLeftBackward()
+            self.__setRightBackward()
 
         def __moveLeft(self):
             self.__robot.right(speed=self.speed)
@@ -54,22 +54,22 @@ class MoveCommand:
         def __stop(self):
             self.__robot.stop()
 
-        def __leftForward(self):
+        def __setLeftForward(self):
             self.__leftForward.on()
             self.__leftBackward.off()
             self.__leftEnable.value = self.speed
 
-        def __leftBackward(self):
+        def __setLeftBackward(self):
             self.__leftForward.off()
             self.__leftBackward.on()
             self.__leftEnable.value = self.speed
 
-        def __rightForward(self):
+        def __setRightForward(self):
             self.__rightForward.on()
             self.__rightBackward.off()
             self.__rightEnable.value = self.speed
 
-        def __rightBackward(self):
+        def __setRightBackward(self):
             self.__rightForward.off()
             self.__rightBackward.on()
             self.__rightEnable.value = self.speed
