@@ -9,6 +9,8 @@ class ConfigReader:
             self.leftMotorBackwardPin = instance.leftMotorBackwardPin
             self.rightMotorForwardPin = instance.rightMotorForwardPin
             self.rightMotorBackwardPin = instance.rightMotorBackwardPin
+            self.ip = instance.ip
+            self.port = instance.port
 
     class __ConfigReader: 
 
@@ -20,6 +22,8 @@ class ConfigReader:
             self.leftMotorBackwardPin = config['MotorLeft']['backward']
             self.rightMotorForwardPin = config['MotorRight']['forward']
             self.rightMotorBackwardPin = config['MotorRight']['backward']
+            self.ip = config['server']['ip']
+            self.port = config['server']['port']
 
     
 

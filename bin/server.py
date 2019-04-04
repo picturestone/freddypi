@@ -13,6 +13,7 @@ Send a POST request::
 """
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import socketserver,sys,json
+from configreader import ConfigReader
 from time import sleep
 from handler import Handler
 
@@ -33,8 +34,11 @@ class S(BaseHTTPRequestHandler):
         self._set_headers()
         self.wfile.write(b"")
 
-def run(server_class=ThreadingHTTPServer, handler_class=S, port=50000):
-    server_address = ('127.0.0.1', port)
+def run(server_class=ThreadingHTTPServer, handler_class=S):
+    config = ConfigReader()
+    ip = config.ip
+    port = config.port
+    server_address = (ip, int(port))
     httpd = server_class(server_address, handler_class)
     print ('Starting httpd...')
     httpd.serve_forever()
@@ -42,7 +46,4 @@ def run(server_class=ThreadingHTTPServer, handler_class=S, port=50000):
 if __name__ == "__main__":
     from sys import argv
 
-    if len(argv) == 2:
-        run(port=int(argv[1]))
-    else:
-        run()
+    run()

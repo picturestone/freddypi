@@ -1,6 +1,5 @@
 from commands.movecommand import MoveCommand
 from commands.testcommand import TestCommand
-from configreader import ConfigReader
 
 class Handler:
     def __init__(self):
