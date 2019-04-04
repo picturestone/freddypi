@@ -10,10 +10,10 @@ class MoveCommand:
             instance = MoveCommand.__MoveCommand(direction)
             self.__execute()
         else:
-            instance.__direction = direction
+            instance.direction = direction
     
     def __execute(self):
-        self.instance.__directions[self.instance.direction]()
+        self.instance.directions[self.instance.direction]()
 
     class __MoveCommand:
         def __init__(self, direction):
@@ -24,7 +24,7 @@ class MoveCommand:
                 )
             self.speed = 1
             self.direction = direction
-            self.__directions = {
+            self.directions = {
                 "forward": self.__moveForward,
                 "backward": self.__moveBackward,
                 "left": self.__moveLeft,
