@@ -38,10 +38,10 @@ class MoveCommand:
             self.__robot.backward(speed=self.speed)
 
         def __moveLeft(self):
-            self.__robot.left(speed=self.speed)
+            self.__robot.right(speed=self.speed)
 
         def __moveRight(self):
-            self.__robot.right(speed=self.speed)
+            self.__robot.left(speed=self.speed)
         
         def __stop(self):
             self.__robot.stop()
