@@ -8,8 +8,7 @@ class TestCommand:
             TestCommand.instance.message = message
     
     def execute(self):
-        for i in range(0,4):
-            print(TestCommand.instance.message)
+        print(TestCommand.instance.message)
         
 
     class __TestCommand:
