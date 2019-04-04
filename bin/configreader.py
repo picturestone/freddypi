@@ -1,9 +1,9 @@
 import configparser
 
 class ConfigReader:
-    instance: None
+    instance = None
     def __init__(self):
-        if not instance: 
+        if not ConfigReader.instance: 
             instance = ConfigReader.__ConfigReader()
             self.leftMotorForwardPin = instance.leftMotorForwardPin
             self.leftMotorBackwardPin = instance.leftMotorBackwardPin
@@ -20,6 +20,10 @@ class ConfigReader:
             self.leftMotorBackwardPin = config['MotorLeft']['backward']
             self.rightMotorForwardPin = config['MotorRight']['forward']
             self.rightMotorBackwardPin = config['MotorRight']['backward']
+
+    
+
+    
 
 
 
